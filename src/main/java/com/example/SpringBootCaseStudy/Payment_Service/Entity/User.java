@@ -13,4 +13,5 @@ public class User {
     String email;
     @Column(name = "contact")
     String mobile;
+    Double balance;
 }

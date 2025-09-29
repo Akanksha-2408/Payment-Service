@@ -10,9 +10,9 @@ import lombok.Data;
 @Data
 public class Payment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int pid;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String transactionId;
     String payMode;
     String status;
-    Double balance;
+    Double amount;
 }

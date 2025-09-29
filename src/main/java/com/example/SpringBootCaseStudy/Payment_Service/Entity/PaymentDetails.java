@@ -3,28 +3,44 @@ package com.example.SpringBootCaseStudy.Payment_Service.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+
 @Entity
 @Data
 public class PaymentDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int pdid;
+    private int pid;
 
     @ManyToOne
     User user;
 
     String payType;
-    //COD - nothing new
+
     //Card
     String cardNumber;
-    String cardLimit;
-    String cvv;  //3-4 digit verification number on card
+    String cvv;
+    Date cardExpiryDate;
+
     //UPI
     String upiId;
-    String pin;
+
     //Netbanking
     String username;
     String password;
 
     Double balance;
+
+    public PaymentDetails() {}
+
+    public PaymentDetails(String cardNumber, Date cardExpiryDate) {
+        this.cardNumber = cardNumber;
+        this.cardExpiryDate = cardExpiryDate;
+    }
+
+    public PaymentDetails(String upiId) {
+        this.upiId = upiId;
+    }
+
 }

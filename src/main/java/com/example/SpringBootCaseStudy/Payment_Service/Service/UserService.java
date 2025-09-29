@@ -1,7 +1,7 @@
 package com.example.SpringBootCaseStudy.Payment_Service.Service;
 
 import com.example.SpringBootCaseStudy.Payment_Service.Entity.User;
-import com.example.SpringBootCaseStudy.Payment_Service.Interface.UserInterface;
+import com.example.SpringBootCaseStudy.Payment_Service.Interface.IUserHandler;
 import com.example.SpringBootCaseStudy.Payment_Service.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Service
-public class UserService implements UserInterface {
+public class UserService implements IUserHandler {
 
     @Autowired
     UserRepo userRepo;
@@ -43,8 +43,7 @@ public class UserService implements UserInterface {
             }
             userRepo.save(user);
         }
-        return user;
-    }
+        return user;    }
 
     @Override
     public void deleteUser(@RequestParam int id) {

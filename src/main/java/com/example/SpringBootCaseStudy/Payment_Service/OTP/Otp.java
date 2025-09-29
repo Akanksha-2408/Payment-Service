@@ -1,9 +1,10 @@
-package com.example.SpringBootCaseStudy.Payment_Service.Entity.OTP;
+package com.example.SpringBootCaseStudy.Payment_Service.OTP;
 
 import java.util.Random;
 
 public class Otp {
-    public String GenerateOtp(int length) {
+
+    public  static  String generateOtp(int length) {
         String digits = "0123456789";
         Random random = new Random();
         StringBuilder otp = new StringBuilder();

@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class TransactionDTO {
-   String otp;
-   double amount;
+    String otp;
+    String transactionId;
 }
