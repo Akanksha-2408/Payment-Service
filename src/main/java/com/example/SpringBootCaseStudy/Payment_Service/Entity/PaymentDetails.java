@@ -1,5 +1,6 @@
 package com.example.SpringBootCaseStudy.Payment_Service.Entity;
 
+import com.example.SpringBootCaseStudy.Payment_Service.Enums.PaymentType;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,10 +14,8 @@ public class PaymentDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pid;
 
-    @ManyToOne
-    User user;
-
-    String payType;
+    @Enumerated(EnumType.STRING)
+    PaymentType paymentType;
 
     //Card
     String cardNumber;
@@ -30,17 +29,7 @@ public class PaymentDetails {
     String username;
     String password;
 
-    Double balance;
-
-    public PaymentDetails() {}
-
-    public PaymentDetails(String cardNumber, Date cardExpiryDate) {
-        this.cardNumber = cardNumber;
-        this.cardExpiryDate = cardExpiryDate;
-    }
-
-    public PaymentDetails(String upiId) {
-        this.upiId = upiId;
-    }
-
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    User user;
 }
